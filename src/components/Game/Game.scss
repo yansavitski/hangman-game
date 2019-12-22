@@ -1,0 +1,32 @@
+.game {
+  height: 100vh;
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+
+  &__title {
+    font-size: 32px;
+    text-align: center;
+    color: #8a0000;
+  }
+
+  &__main-content {
+    display: flex;
+    flex-grow: 1;
+    position: relative;
+  }
+
+  &__scores {
+    width: 200px;
+    text-align: center;
+  }
+
+  &__gallow-tree {
+    flex-grow: 1;
+  }
+
+  &__keyboard_blocked {
+    pointer-events: none;
+  }
+}

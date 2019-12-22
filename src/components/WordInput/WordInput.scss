@@ -1,0 +1,10 @@
+.word-input {
+  display: flex;
+  justify-content: center;
+  margin: 20px auto;
+  font-size: 48px;
+
+  &__letter {
+    margin-right: 20px;
+  }
+}

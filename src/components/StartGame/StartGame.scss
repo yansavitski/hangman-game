@@ -1,0 +1,11 @@
+.start-game {
+  margin: 20px auto;
+  font-size: 48px;
+  cursor: pointer;
+  text-align: center;
+  transition: 0.15s transform;
+
+  &:hover {
+    transform: scale(1.2);
+  }
+}
