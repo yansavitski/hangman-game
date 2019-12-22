@@ -1,10 +1,20 @@
+require('dotenv').config();
+
 const createError = require("http-errors");
-const cors = require('cors');
+const cors = require("cors");
 const express = require("express");
 const app = express();
-const PORT = process.env.PORT || 9000;
+const mongoose = require("mongoose");
+const apiRouter = require("./routes/api");
 
-const apiRouter = require("./api/index.js");
+mongoose.connect(process.env.DATABASE_URL, { useNewUrlParser: true, useUnifiedTopology: true });
+
+const db = mongoose.connection;
+
+db.on("error", error => console.error(error));
+db.once("open", () => console.log("connected to database"));
+
+const PORT = process.env.PORT || 9000;
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -14,4 +24,4 @@ app.use("/", apiRouter);
 
 app.use((req, res, next) => next(createError(404)));
 
-app.listen(PORT);
+app.listen(PORT, () => console.log("Server started"));
